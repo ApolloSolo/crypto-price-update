@@ -5,7 +5,7 @@ const litPriceText = document.querySelector('#lit-price-text');
 
 const getBitPrice = async () => {
     try{
-        const data = await axios.get('https://api.cryptonator.com/api/full/btc-usd');
+        const data = await axios.get('https://api.cryptonator.com/api/ticker/btc-usd');
         const bitCoinPrice = parseFloat(data.data.ticker.price).toFixed(2);
         let commas = bitCoinPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         bitPriceText.innerHTML = `Price: $${commas}`; 
@@ -31,5 +31,3 @@ const getLitPrice = async () => {
 }
 
 getBitPrice();
-getEthPrice();
-getLitPrice();
